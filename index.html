@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>N_TR MAHIN_MONSTER v52 Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 🔐 Login Overlay -->
+    <div id="loginOverlay" class="login-overlay">
+        <div class="login-box">
+            <h2>N_TR MAHIN VIP</h2>
+            <p>Enter Credentials to Unlock</p>
+            <input type="text" id="nameInput" placeholder="Enter Your Name (e.g. Mahin)" autocomplete="off">
+            <input type="password" id="passInput" placeholder="Enter Password" autocomplete="off">
+            <button onclick="verifyPassword()">UNLOCK SYSTEM</button>
+            <div id="errorMsg" class="error-msg">Incorrect Name or Password!</div>
+        </div>
+    </div>
+
+    <!-- 🎮 Floating Overlay Card -->
+    <div id="floatingCard" class="floating-card minimized">
+        
+        <!-- Header / Drag Handle -->
+        <div id="cardHeader" class="card-header">
+            <div class="brand-title">
+                <span class="dot"></span> 𝑵_𝑻𝑹 𝑴𝒂𝒉𝒊𝒏 𝑸𝒄
+            </div>
+            <div class="header-controls">
+                <button onclick="toggleMinimize()" class="min-btn" id="minBtn">▢</button>
+            </div>
+        </div>
+
+        <!-- Main Body -->
+        <div class="card-body">
+            
+            <!-- Status & Mode -->
+            <div class="status-bar">
+                <span id="scanStatusIndicator" class="scan-live">MANUAL MODE • LIVE</span>
+                <span id="modeBadge" class="mode-badge mode-normal">NORMAL MODE</span>
+            </div>
+
+            <!-- Greeting Banner -->
+            <div id="greetingDisplay" class="greeting-display">WELCOME BOSS</div>
+
+            <!-- Prediction Display Box -->
+            <div class="prediction-box">
+                <div class="pred-label">NEXT PREDICTION</div>
+                <div id="predOutput" class="pred-output">WAITING...</div>
+                <div id="predSub" class="pred-sub">Tap P or B according to game result</div>
+            </div>
+
+            <!-- Live Stats & History Badge Bar -->
+            <div class="stats-panel">
+                <div class="stat-box">WINS: <span id="winCount">0</span></div>
+                <div class="stat-box">LOSS: <span id="lossCount">0</span></div>
+                <div class="stat-box">WIN RATE: <span id="winRate">0%</span></div>
+            </div>
+
+            <div class="history-container" id="historyList">
+                <!-- History badges will appear here -->
+            </div>
+
+            <!-- Manual Input Buttons (Player / Banker) -->
+            <div class="input-actions" style="display: flex; gap: 6px; margin-bottom: 8px;">
+                <button class="btn-action" style="background: var(--player-blue); color:#fff;" onclick="addManualResult('P')">PLAYER (P)</button>
+                <button class="btn-action" style="background: var(--banker-red); color:#fff;" onclick="addManualResult('B')">BANKER (B)</button>
+            </div>
+
+            <!-- Controls & Settings -->
+            <div class="control-actions">
+                <button class="btn-action btn-undo" onclick="undoLast()">UNDO</button>
+                <button class="btn-action btn-reset" onclick="resetAll()">RESET</button>
+                <div class="voice-toggle-wrap">
+                    <label class="switch">
+                        <input type="checkbox" id="voiceToggle" checked>
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="voice-label">VOICE</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bubble View for minimized state -->
+    <div id="bubbleView" class="bubble-view" onclick="toggleMinimize()">
+        <span>💎</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
